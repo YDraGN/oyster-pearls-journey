@@ -192,7 +192,7 @@ function Field({
   id,
   error,
   ...props
-}: React.InputHTMLAttributes<HTMLInputElement> & { label: string; id: string; error?: string }) {
+}: React.InputHTMLAttributes<HTMLInputElement> & { label: string; id: string; error?: string | undefined }) {
   return (
     <div>
       <label htmlFor={id} className="mb-1.5 block font-heading text-sm font-bold">
