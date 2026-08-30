@@ -1,23 +1,63 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Header } from "@/components/site/Header";
+import { HeroSlider } from "@/components/site/HeroSlider";
+import { BulletRail } from "@/components/site/BulletRail";
+import { AuthDialog } from "@/components/site/AuthDialog";
+import { Footer } from "@/components/site/Footer";
+import {
+  ListeningSection,
+  ReadingSection,
+  RoadmapSection,
+  CollectionSection,
+  AiSection,
+} from "@/components/site/sections";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "ToeicSpace — Luyện thi TOEIC cùng Oysteic";
+const description =
+  "Nền tảng luyện thi TOEIC với phòng luyện Listening & Reading theo từng Part, lộ trình cá nhân hoá, bộ sưu tập từ vựng tự động và flashcard AI.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [authOpen, setAuthOpen] = useState(false);
+  const [authMode, setAuthMode] = useState<"login" | "register">("login");
+
+  const openAuth = (mode: "login" | "register") => {
+    setAuthMode(mode);
+    setAuthOpen(true);
+  };
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+    <div className="page-gradient min-h-screen">
+      <Header onAuth={openAuth} />
+      <BulletRail />
+      <main>
+        <HeroSlider onAuth={openAuth} />
+        <ListeningSection />
+        <ReadingSection />
+        <RoadmapSection />
+        <CollectionSection />
+        <AiSection />
+      </main>
+      <Footer />
+      <AuthDialog
+        open={authOpen}
+        mode={authMode}
+        onOpenChange={setAuthOpen}
+        onModeChange={setAuthMode}
       />
     </div>
   );
