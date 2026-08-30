@@ -14,19 +14,27 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="page-gradient relative flex min-h-screen items-center justify-center overflow-hidden px-4">
+      <Bubbles count={8} />
+      <div className="relative max-w-lg text-center">
+        <img
+          src={MASCOT.lost}
+          alt="Oysteic lạc đường"
+          className="animate-float-soft mx-auto w-56 drop-shadow-2xl sm:w-72"
+        />
+        <h1 className="font-script mt-2 text-5xl text-gradient-sea sm:text-6xl">
+          Trang này trôi mất rồi
+        </h1>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Oysteic bơi mãi mà không tìm thấy trang bạn cần. Có lẽ nó đã chìm xuống đáy biển, hoặc
+          địa chỉ bị gõ nhầm một chút.
         </p>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex h-12 items-center justify-center rounded-full px-7 font-heading font-bold text-primary-foreground shadow-[var(--shadow-soft)] transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-pearl)] [background-image:var(--gradient-cta)]"
           >
-            Go home
+            Quay về vỏ sò
           </Link>
         </div>
       </div>
