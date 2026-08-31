@@ -5,5 +5,6 @@ export const SECTIONS = [
   { id: "roadmap", label: "Lộ trình" },
   { id: "collection", label: "Bộ sưu tập" },
   { id: "ai", label: "AI từ vựng" },
+  { id: "partners", label: "Đối tác" },
   { id: "footer", label: "Liên hệ" },
 ] as const;

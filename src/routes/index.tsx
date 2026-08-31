@@ -5,6 +5,7 @@ import { HeroSlider } from "@/components/site/HeroSlider";
 import { BulletRail } from "@/components/site/BulletRail";
 import { AuthDialog } from "@/components/site/AuthDialog";
 import { Footer } from "@/components/site/Footer";
+import { PartnersLocked } from "@/components/site/PartnersLocked";
 import {
   ListeningSection,
   ReadingSection,
@@ -51,6 +52,7 @@ function Index() {
         <RoadmapSection />
         <CollectionSection />
         <AiSection />
+        <PartnersLocked />
       </main>
       <Footer />
       <AuthDialog

@@ -96,7 +96,7 @@ export function HeroSlider({ onAuth }: { onAuth: (mode: "login" | "register") =>
             <Slide>
               <div className="grid items-center gap-8 md:grid-cols-[0.9fr_1.1fr]">
                 <img
-                  src={MASCOT.calm}
+                  src={MASCOT.celebrate}
                   alt="Oysteic ngồi yên trong vỏ sò"
                   width={1024}
                   height={1024}
