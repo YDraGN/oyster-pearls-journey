@@ -11,7 +11,7 @@ export function Wordmark({ className }: { className?: string }) {
         alt="ToeicSpace"
         width={1536}
         height={512}
-        className="h-9 w-auto drop-shadow-sm sm:h-11 dark:brightness-125"
+        className="h-11 w-auto brightness-75 contrast-150 drop-shadow-md saturate-150 sm:h-14 dark:brightness-150 dark:contrast-125 dark:saturate-150"
       />
     </span>
   );
