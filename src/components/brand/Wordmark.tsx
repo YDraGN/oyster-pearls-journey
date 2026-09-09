@@ -1,27 +1,33 @@
 import logo from "@/assets/toeicspace-logo.png";
+import logoInk from "@/assets/toeicspace-logo-ink.png";
 import mark from "@/assets/oysteic-mark.png";
 import { cn } from "@/lib/utils";
 
 /** Logo thương hiệu: wordmark calligraphy + motif vỏ sò. */
 export function Wordmark({ className }: { className?: string }) {
   return (
-    <span
-      className={cn(
-        // Light mode: đặt wordmark pastel trên nền đêm để bật tương phản; dark mode ngược lại.
-        "inline-flex items-center gap-2 rounded-2xl px-3 py-1.5 shadow-[var(--shadow-pearl)] [background-image:linear-gradient(135deg,oklch(0.26_0.08_282),oklch(0.2_0.07_268))] dark:bg-none dark:px-0 dark:py-0 dark:shadow-none",
-        className,
-      )}
-    >
+    <span className={cn("inline-flex items-center gap-2", className)}>
+      {/* Light mode: bản mực xanh đêm/tím để nổi trên nền pastel. */}
       <img
-        src={logo}
+        src={logoInk}
         alt="ToeicSpace"
         width={1536}
         height={512}
-        className="h-10 w-auto contrast-125 drop-shadow-md saturate-150 sm:h-12 dark:brightness-150 dark:contrast-125"
+        className="h-11 w-auto drop-shadow-[0_1px_2px_rgba(255,255,255,0.55)] sm:h-13 dark:hidden"
+      />
+      {/* Dark mode: bản pastel sáng trên nền đêm. */}
+      <img
+        src={logo}
+        alt=""
+        aria-hidden="true"
+        width={1536}
+        height={512}
+        className="hidden h-11 w-auto brightness-150 contrast-125 drop-shadow-md sm:h-13 dark:block"
       />
     </span>
   );
 }
+
 
 export function ShellMark({ className }: { className?: string }) {
   return (
