@@ -6,14 +6,14 @@ import { cn } from "@/lib/utils";
 /** Logo thương hiệu: wordmark calligraphy + motif vỏ sò. */
 export function Wordmark({ className }: { className?: string }) {
   return (
-    <span className={cn("inline-flex items-center gap-2", className)}>
-      {/* Light mode: bản mực xanh đêm/tím để nổi trên nền pastel. */}
+    <span className={cn("inline-flex items-center", className)}>
+      {/* Light mode: cùng thiết kế gốc, chỉ tô lại màu mực xanh đêm/tím. */}
       <img
         src={logoInk}
         alt="ToeicSpace"
         width={1536}
         height={512}
-        className="h-11 w-auto drop-shadow-[0_1px_2px_rgba(255,255,255,0.55)] sm:h-13 dark:hidden"
+        className="h-11 w-auto sm:h-13 dark:hidden"
       />
       {/* Dark mode: bản pastel sáng trên nền đêm. */}
       <img
