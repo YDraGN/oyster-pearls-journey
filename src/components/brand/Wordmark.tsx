@@ -1,29 +1,39 @@
-import logo from "@/assets/toeicspace-logo.png";
-import logoInk from "@/assets/toeicspace-logo-ink.png";
 import mark from "@/assets/oysteic-mark.png";
 import { cn } from "@/lib/utils";
 
-/** Logo thương hiệu: wordmark calligraphy + motif vỏ sò. */
+/** Logo thương hiệu: Oysteic, wordmark thanh lịch và ánh ngọc chuyển sắc. */
 export function Wordmark({ className }: { className?: string }) {
   return (
-    <span className={cn("inline-flex items-center", className)}>
-      {/* Light mode: cùng thiết kế gốc, chỉ tô lại màu mực xanh đêm/tím. */}
-      <img
-        src={logoInk}
-        alt="ToeicSpace"
-        width={1536}
-        height={512}
-        className="h-11 w-auto sm:h-13 dark:hidden"
-      />
-      {/* Dark mode: bản pastel sáng trên nền đêm. */}
-      <img
-        src={logo}
-        alt=""
-        aria-hidden="true"
-        width={1536}
-        height={512}
-        className="hidden h-11 w-auto brightness-150 contrast-125 drop-shadow-md sm:h-13 dark:block"
-      />
+    <span
+      className={cn(
+        "brand-lockup group relative inline-flex h-14 items-center gap-1.5 sm:h-16 sm:gap-2",
+        className,
+      )}
+      aria-label="ToeicSpace"
+    >
+      <span className="brand-mark relative grid h-12 w-12 shrink-0 place-items-center sm:h-14 sm:w-14">
+        <span className="brand-orbit absolute inset-1 rounded-full" aria-hidden="true" />
+        <img
+          src={mark}
+          alt=""
+          aria-hidden="true"
+          width={816}
+          height={816}
+          className="relative z-10 h-full w-full select-none object-contain drop-shadow-[var(--shadow-brand-mark)]"
+        />
+      </span>
+
+      <span className="relative flex min-w-0 flex-col pb-0.5">
+        <span className="flex items-baseline whitespace-nowrap leading-none" aria-hidden="true">
+          <span className="brand-wordmark brand-wordmark-primary">Toeic</span>
+          <span className="brand-wordmark brand-wordmark-secondary">Space</span>
+        </span>
+        <span className="brand-signature-line mt-1 h-px w-full" aria-hidden="true" />
+        <span className="brand-tagline mt-1 pl-0.5 text-[7px] font-bold uppercase sm:text-[8px]">
+          Grow your pearl
+        </span>
+        <span className="brand-pearl absolute -right-1 top-0 h-1.5 w-1.5 rounded-full sm:-right-2 sm:h-2 sm:w-2" aria-hidden="true" />
+      </span>
     </span>
   );
 }

@@ -100,6 +100,13 @@
   --gradient-cta: linear-gradient(135deg, oklch(0.5 0.17 255), oklch(0.62 0.18 320));
   --shadow-soft: 0 18px 40px -22px oklch(0.38 0.13 250 / 0.7);
   --shadow-pearl: 0 0 0 1px oklch(1 0 0 / 0.72), 0 12px 30px -12px oklch(0.42 0.16 250 / 0.68);
+  --brand-ink: oklch(0.27 0.11 264);
+  --brand-blue: oklch(0.5 0.15 260);
+  --brand-pink: oklch(0.76 0.14 355);
+  --brand-gold: oklch(0.86 0.12 92);
+  --brand-subtle: oklch(0.38 0.09 260);
+  --shadow-brand-mark: 0 5px 9px oklch(0.34 0.12 260 / 0.3);
+  --gradient-brand: linear-gradient(105deg, var(--brand-ink) 4%, var(--brand-blue) 54%, var(--brand-pink) 82%, var(--brand-gold) 112%);
   --paper: oklch(0.99 0.012 95 / 0.88);
   --dot: oklch(0.48 0.1 250 / 0.42);
 }
@@ -147,6 +154,13 @@
   --gradient-cta: linear-gradient(135deg, oklch(0.9 0.12 95), oklch(0.84 0.14 350));
   --shadow-soft: 0 20px 48px -26px oklch(0.05 0.05 280 / 0.9);
   --shadow-pearl: 0 0 0 1px oklch(1 0 0 / 0.14), 0 0 28px -6px oklch(0.88 0.11 92 / 0.45);
+  --brand-ink: oklch(0.92 0.045 250);
+  --brand-blue: oklch(0.78 0.11 245);
+  --brand-pink: oklch(0.81 0.12 350);
+  --brand-gold: oklch(0.9 0.11 92);
+  --brand-subtle: oklch(0.78 0.065 260);
+  --shadow-brand-mark: 0 5px 13px oklch(0.9 0.09 320 / 0.22);
+  --gradient-brand: linear-gradient(105deg, var(--brand-ink) 2%, var(--brand-blue) 48%, var(--brand-pink) 76%, var(--brand-gold) 108%);
   --paper: oklch(0.28 0.06 278 / 0.72);
   --dot: oklch(0.9 0.04 280 / 0.32);
 }
@@ -187,6 +201,72 @@
   background-image: var(--gradient-cta);
   background-clip: text;
   color: transparent;
+}
+
+@layer components {
+  .brand-wordmark {
+    background-image: var(--gradient-brand);
+    background-clip: text;
+    color: transparent;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    letter-spacing: 0;
+    filter: drop-shadow(0 1px 0 color-mix(in oklab, var(--brand-ink) 12%, transparent));
+  }
+
+  .brand-wordmark-primary {
+    font-size: 1.8rem;
+    font-style: italic;
+  }
+
+  .brand-wordmark-secondary {
+    margin-left: 0.08em;
+    font-size: 1.55rem;
+  }
+
+  .brand-signature-line {
+    background-image: linear-gradient(90deg, var(--brand-ink), var(--brand-blue) 52%, var(--brand-pink) 82%, transparent);
+    transform: skewX(-18deg);
+    transform-origin: left;
+    opacity: 0.58;
+  }
+
+  .brand-tagline {
+    color: var(--brand-subtle);
+    font-family: var(--font-sans);
+    letter-spacing: 0.22em;
+  }
+
+  .brand-orbit {
+    border: 1px solid color-mix(in oklab, var(--brand-blue) 32%, transparent);
+    opacity: 0.52;
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease;
+  }
+
+  .brand-pearl {
+    background: radial-gradient(circle at 32% 28%, var(--pearl) 0 24%, var(--brand-gold) 58%, var(--brand-pink));
+    box-shadow: 0 0 8px color-mix(in oklab, var(--brand-gold) 55%, transparent);
+    transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .brand-lockup:hover .brand-orbit {
+    opacity: 0.82;
+    transform: scale(1.14) rotate(8deg);
+  }
+
+  .brand-lockup:hover .brand-pearl {
+    transform: translateY(-2px) scale(1.12);
+  }
+
+  @media (min-width: 640px) {
+    .brand-wordmark-primary {
+      font-size: 2.08rem;
+    }
+
+    .brand-wordmark-secondary {
+      font-size: 1.78rem;
+    }
+  }
 }
 
 @utility journal-dots {
