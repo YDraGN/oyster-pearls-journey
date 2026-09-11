@@ -30,7 +30,7 @@ export function Wordmark({ className }: { className?: string }) {
         </span>
         <span className="brand-signature-line mt-1 h-px w-full" aria-hidden="true" />
         <span className="brand-tagline mt-1 pl-0.5 text-[7px] font-bold uppercase sm:text-[8px]">
-          Grow your pearl
+          Aim for 990
         </span>
         <span className="brand-pearl absolute -right-1 top-0 h-1.5 w-1.5 rounded-full sm:-right-2 sm:h-2 sm:w-2" aria-hidden="true" />
       </span>
