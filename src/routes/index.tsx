@@ -6,6 +6,7 @@ import { BulletRail } from "@/components/site/BulletRail";
 import { AuthDialog } from "@/components/site/AuthDialog";
 import { Footer } from "@/components/site/Footer";
 import { PartnersLocked } from "@/components/site/PartnersLocked";
+import { AppIconShowcase } from "@/components/site/AppIconShowcase";
 import {
   ListeningSection,
   ReadingSection,
@@ -53,6 +54,7 @@ function Index() {
         <CollectionSection />
         <AiSection />
         <PartnersLocked />
+        <AppIconShowcase />
       </main>
       <Footer />
       <AuthDialog

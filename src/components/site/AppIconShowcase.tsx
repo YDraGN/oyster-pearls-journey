@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Check, Download, Layers3 } from "lucide-react";
-import { PearlButton, Reveal } from "@/components/site/primitives";
+import { pearlButton, Reveal } from "@/components/site/primitives";
 import studyForeground from "@/assets/app-icons/study-pearl-foreground.png.asset.json";
 import studyBackground from "@/assets/app-icons/study-pearl-background.png.asset.json";
 import studyPreview from "@/assets/app-icons/study-pearl-preview.png.asset.json";
@@ -106,12 +106,20 @@ export function AppIconShowcase() {
                     </div>
                     <p className="mt-1 text-sm text-muted-foreground">{icon.note}</p>
                     <div className="mt-4 grid grid-cols-2 gap-2">
-                      <PearlButton asChild={false} variant="pearl" size="sm" className="px-2" onClick={() => window.open(icon.foreground, "_blank", "noopener,noreferrer") }>
+                      <a
+                        href={icon.foreground}
+                        download={icon.foregroundName}
+                        className={cn(pearlButton({ variant: "pearl", size: "sm" }), "px-2")}
+                      >
                         <Download className="h-4 w-4" aria-hidden="true" /> Foreground
-                      </PearlButton>
-                      <PearlButton asChild={false} variant="pearl" size="sm" className="px-2" onClick={() => window.open(icon.background, "_blank", "noopener,noreferrer") }>
+                      </a>
+                      <a
+                        href={icon.background}
+                        download={icon.backgroundName}
+                        className={cn(pearlButton({ variant: "pearl", size: "sm" }), "px-2")}
+                      >
                         <Download className="h-4 w-4" aria-hidden="true" /> Background
-                      </PearlButton>
+                      </a>
                     </div>
                   </div>
                 </article>
